@@ -1,0 +1,161 @@
+﻿<UserControl x:Class="WpfAppExample1.UserControls.UcLigDetay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfAppExample1.UserControls" xmlns:Converter="clr-namespace:WpfAppExample1.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Converter:ByteArrayToBitmapImageConverter x:Name="binaryConverter" x:Key="byteToImageConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Border Margin="5" Background="PapayaWhip" BorderBrush="Gray" BorderThickness="0.01" Grid.Row="0" Grid.Column="0">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" BlurRadius="10"/>
+            </Border.Effect>
+            <StackPanel>
+                <Label Content="Ligde Atılan Gol Sayısı" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="ExtraBlack"/>
+                <Label Content="{Binding ToplamGol}" HorizontalAlignment="Center" VerticalAlignment="Stretch" BorderBrush="Gray" FontSize="30"/>
+
+            </StackPanel>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="#e8ffc8"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.9"/>
+                            <Setter Property="OpacityMask" Value="AliceBlue"/>
+                            
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                
+            </Border.Style>
+        </Border>
+        <Border Margin="5" Background="PapayaWhip" BorderBrush="Gray" BorderThickness="0.01" Grid.Column="0" Grid.Row="1" >
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" ></DropShadowEffect>
+            </Border.Effect>
+            <StackPanel>
+                <Label Content="En Çok Gol Atan Takim"  FontSize="20" FontWeight="Bold"  HorizontalAlignment="Center"/>
+                <Image Source="{Binding EnGolcuTakim.takim_logo,Converter={StaticResource byteToImageConverter}}" Width="100" Height="100"  HorizontalAlignment="Center"/>
+                <Label Content="{Binding EnGolcuTakim.takim_ad}" HorizontalAlignment="Center" />
+            </StackPanel>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="#e8ffc8"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.9"/>
+                            
+                           
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </Border.Style>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="0" Margin="5" Background="PapayaWhip" BorderBrush="Gray" BorderThickness="0.01">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" ></DropShadowEffect>
+            </Border.Effect>
+            <StackPanel>
+                <Label Content="İç Sahada En Başarılı Takım" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="ExtraBlack"></Label>
+                <Image Source="{Binding IcSahaEnBasariliTakim.takim_logo,Converter={StaticResource byteToImageConverter}}" Width="100" Height="100"  HorizontalAlignment="Center"/>
+                <Label Content="{Binding IcSahaEnBasariliTakim.takim_ad}" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="#e8ffc8"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.9"/>
+
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </Border.Style>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1" Margin="5" Background="PapayaWhip" BorderBrush="Gray" BorderThickness="0.01" >
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" ></DropShadowEffect>
+            </Border.Effect>
+            <StackPanel>
+                <Label Content="Maç Başına Atılan Gol Ortalaması" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="ExtraBlack"></Label>
+                <Label Content="{Binding OrtalamaGol}" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Gray" FontSize="30"/>
+            </StackPanel>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="#e8ffc8"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.9"/>
+
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </Border.Style>
+        </Border>
+        <Border Grid.Column="1"  Grid.Row="1" Margin="5" Background="PapayaWhip" BorderBrush="Gray" BorderThickness="0.01">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" ></DropShadowEffect>
+            </Border.Effect>
+            <StackPanel>
+                <Label Content="En Az Gol Yiyen Takim" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
+                <Image Source="{Binding EnAzYiyenTakim.takim_logo,Converter={StaticResource byteToImageConverter}}" Width="100" Height="100"  HorizontalAlignment="Center" />
+                <Label Content="{Binding EnAzYiyenTakim.takim_ad}" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="#e8ffc8"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.9"/>
+
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </Border.Style>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="1" Margin="5" Background="PapayaWhip" BorderBrush="Gray" BorderThickness="0.01">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" ></DropShadowEffect>
+            </Border.Effect>
+            <StackPanel>
+                <Label Content="Dış Sahada En Başarılı Takım" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="ExtraBlack"></Label>
+                <Image Source="{Binding DepEnBasariliTakim.takim_logo,Converter={StaticResource byteToImageConverter}}" Width="100" Height="100"  HorizontalAlignment="Center"/>
+                <Label Content="{Binding DepEnBasariliTakim.takim_ad}" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="#e8ffc8"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.9"/>
+
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </Border.Style>
+        </Border>
+    </Grid>
+</UserControl>
